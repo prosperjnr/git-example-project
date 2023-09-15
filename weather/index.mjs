@@ -3,7 +3,7 @@ const router = express.Router();
 import fetch from 'node-fetch';
 
 const fetchWeather = async (searchtext) => {
-  const url = `https://api.openweathermap.org/data/3.0/onecall?q=${searchtext}&units=imperial&limit=2&appid=${process.env.WEATHER_API_KEY}`;
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${searchtext}&units=imperial&limit=1&appid=${process.env.WEATHER_API_KEY}`;
   try {
     const weatherStream = await fetch(url);
     const weatherJson = await weatherStream.json();
